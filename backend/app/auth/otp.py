@@ -24,14 +24,17 @@ def create_and_send_otp(db: Session, email: str) -> None:
     db.add(otp_entry)
     db.commit()
 
-    resend.Emails.send(
-        {
-            "from": "QueryMind <onboarding@resend.dev>",
-            "to": email,
-            "subject": "Your QueryMind verification code",
-            "html": f"<p>Your verification code is: <strong>{code}</strong></p><p>This code expires in {OTP_EXPIRY_MINUTES} minutes.</p>",
-        }
-    )
+    try:
+        resend.Emails.send(
+            {
+                "from": "QueryMind <onboarding@resend.dev>",
+                "to": email,
+                "subject": "Your QueryMind verification code",
+                "html": f"<p>Your verification code is: <strong>{code}</strong></p><p>This code expires in {OTP_EXPIRY_MINUTES} minutes.</p>",
+            }
+        )
+    except Exception as e:
+        print(f"Resend email error (using dev domain): {e}")
 
 
 def verify_otp(db: Session, email: str, code: str) -> bool:
