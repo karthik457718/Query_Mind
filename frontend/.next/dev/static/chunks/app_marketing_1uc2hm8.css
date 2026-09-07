@@ -1,0 +1,1267 @@
+@import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap";
+/* [project]/app/marketing.css [app-client] (css) */
+.marketing-page {
+  --gesso-canvas: #0f1117;
+  --gesso-surface-recessed: #141722;
+  --gesso-surface: #1a1e2e;
+  --gesso-surface-elevated: #23293e;
+  --gesso-divider: #ffffff14;
+  --gesso-fg: #f3f4f6;
+  --gesso-fg-muted: #94a3b8;
+  --gesso-primary: #3dd17e;
+  --gesso-on-accent: #000;
+  --gesso-accent-text: #3dd17e;
+  --gesso-secondary: #f0533d;
+  --gesso-accent-2-text: #f0533d;
+  --gesso-neutral-200: #2d344b;
+  --gesso-neutral-300: #3b4462;
+  --gesso-neutral-500: #64748b;
+  --gesso-neutral-600: #94a3b8;
+  --gesso-neutral-900: #f3f4f6;
+  --gesso-success: #3dd17e;
+  --gesso-warning: #f5b34a;
+  --gesso-error: #ef4444;
+  --gesso-font-display: "Space Grotesk", var(--font-display), system-ui, sans-serif;
+  --gesso-font-body: "Schibsted Grotesk", var(--font-body), system-ui, sans-serif;
+  --container-max-width: 1280px;
+  --outer-margin: 64px;
+  --section-padding: 96px;
+  --gesso-radius-sm: 6px;
+  --gesso-radius-md: 12px;
+  --gesso-radius-lg: 20px;
+  --gesso-radius-full: 9999px;
+  --gesso-shadow-sm: 0 2px 4px #0006;
+  --gesso-shadow-md: 0 10px 30px #00000080;
+  --gesso-shadow-lg: 0 24px 60px #000000b3;
+  --gesso-duration-fast: .18s;
+  --gesso-duration-base: .28s;
+  --gesso-ease: cubic-bezier(.16, 1, .3, 1);
+  --gesso-ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  background: var(--gesso-canvas);
+  color: var(--gesso-fg);
+  font-family: var(--gesso-font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+@keyframes light-sweep {
+  0% {
+    transform: translateX(-100%)rotate(30deg);
+  }
+
+  100% {
+    transform: translateX(200%)rotate(30deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: .4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .8;
+    transform: scale(1.05);
+  }
+}
+
+.marketing-page *, .marketing-page :before, .marketing-page :after {
+  box-sizing: border-box;
+}
+
+.marketing-page h1, .marketing-page h2, .marketing-page h3 {
+  font-family: var(--gesso-font-display);
+  color: var(--gesso-fg);
+  text-wrap: balance;
+  letter-spacing: -.02em;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.marketing-page p {
+  margin: 0;
+}
+
+.marketing-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.marketing-page button {
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.marketing-page img, .marketing-page svg {
+  max-width: 100%;
+  display: block;
+}
+
+.m-wrap {
+  max-width: var(--container-max-width);
+  padding-inline: clamp(24px, 5vw, var(--outer-margin));
+  width: 100%;
+  margin-inline: auto;
+}
+
+.m-nav {
+  z-index: 100;
+  background: color-mix(in srgb, var(--gesso-canvas) 88%, transparent);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid var(--gesso-divider);
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.m-brand {
+  font-family: var(--gesso-font-display);
+  color: var(--gesso-fg);
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  display: flex;
+}
+
+.m-brand-mark {
+  border-radius: var(--gesso-radius-sm);
+  background: var(--gesso-primary);
+  width: 30px;
+  height: 30px;
+  color: var(--gesso-on-accent);
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+}
+
+.m-nav-links {
+  align-items: center;
+  gap: 28px;
+  display: flex;
+}
+
+.m-nav-links a {
+  color: var(--gesso-fg-muted);
+  transition: color var(--gesso-duration-fast) var(--gesso-ease);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.m-nav-links a:hover {
+  color: var(--gesso-fg);
+}
+
+.m-nav-actions {
+  align-items: center;
+  gap: 12px;
+  display: flex;
+}
+
+.m-btn {
+  border-radius: var(--gesso-radius-full);
+  font-family: var(--gesso-font-body);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform var(--gesso-duration-fast) var(--gesso-ease),
+    filter var(--gesso-duration-fast) var(--gesso-ease),
+    background var(--gesso-duration-fast) var(--gesso-ease);
+  border: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.m-btn:active {
+  transform: translateY(1px)scale(.98);
+}
+
+.m-btn-primary {
+  background: var(--gesso-secondary);
+  color: #fff;
+  padding: 11px 22px;
+}
+
+.m-btn-primary:hover {
+  filter: brightness(.93);
+}
+
+.m-btn-ghost {
+  color: var(--gesso-fg);
+  background: none;
+}
+
+.m-btn-ghost:hover {
+  background: #0000000d;
+}
+
+.m-btn-outline {
+  border: 1.5px solid var(--gesso-neutral-300);
+  color: var(--gesso-fg);
+  background: none;
+  padding: 9.5px 20px;
+}
+
+.m-btn-outline:hover {
+  border-color: var(--gesso-fg-muted);
+}
+
+.m-hero {
+  padding-block: clamp(64px, 9vw, var(--section-padding));
+  text-align: center;
+}
+
+.m-eyebrow {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gesso-accent-text);
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.m-hero h1 {
+  margin-bottom: 20px;
+  max-width: 780px;
+  margin-inline: auto;
+  font-size: clamp(32px, 5.5vw, 64px);
+  line-height: clamp(36px, 6vw, 70px);
+}
+
+.m-hero .lede {
+  color: var(--gesso-fg-muted);
+  margin-inline: auto;
+  max-width: 580px;
+  margin-bottom: 36px;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.m-hero-actions {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 64px;
+  display: flex;
+}
+
+.m-story-rail {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 8px;
+  display: grid;
+}
+
+.m-stage-card {
+  background: var(--gesso-surface);
+  border: 1px solid var(--gesso-divider);
+  border-radius: var(--gesso-radius-lg);
+  box-shadow: var(--gesso-shadow-sm);
+  text-align: left;
+  opacity: 0;
+  transition: opacity .7s var(--gesso-ease),
+    transform .7s var(--gesso-ease);
+  padding: 24px;
+  transform: translateY(20px);
+}
+
+.m-stage-card.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.m-stage-num {
+  background: var(--gesso-surface-recessed);
+  width: 32px;
+  height: 32px;
+  color: var(--gesso-fg-muted);
+  transition: background var(--gesso-duration-base), color var(--gesso-duration-base);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+}
+
+.m-stage-card.active .m-stage-num {
+  background: var(--gesso-primary);
+  color: var(--gesso-on-accent);
+}
+
+.m-stage-title {
+  font-family: var(--gesso-font-body);
+  color: var(--gesso-fg);
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.m-stage-desc {
+  color: var(--gesso-fg-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.m-gauge-section {
+  padding-block: clamp(64px, 9vw, var(--section-padding));
+}
+
+.m-gauge-layout {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  align-items: center;
+  gap: 56px;
+  display: grid;
+}
+
+.m-gauge-stage {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+}
+
+.m-gauge-label-row {
+  width: 100%;
+  max-width: 280px;
+  color: var(--gesso-fg-muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+}
+
+.m-gauge-copy h2 {
+  margin-bottom: 16px;
+  font-size: clamp(24px, 2.8vw, 36px);
+}
+
+.m-gauge-copy p {
+  color: var(--gesso-fg-muted);
+  margin-bottom: 28px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.m-pipeline-list {
+  flex-direction: column;
+  gap: 0;
+  display: flex;
+}
+
+.m-pipeline-row {
+  border-top: 1px solid var(--gesso-divider);
+  align-items: center;
+  gap: 14px;
+  padding-block: 14px;
+  display: flex;
+}
+
+.m-pipeline-row:first-child {
+  border-top: none;
+}
+
+.m-pipe-check {
+  background: var(--gesso-primary);
+  width: 20px;
+  height: 20px;
+  color: var(--gesso-on-accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.m-pipe-text {
+  color: var(--gesso-fg);
+  font-size: 14px;
+}
+
+.m-section-head {
+  text-align: center;
+  margin-inline: auto;
+  max-width: 620px;
+  margin-bottom: 52px;
+}
+
+.m-section-head h2 {
+  margin-bottom: 14px;
+  font-size: clamp(26px, 3.2vw, 40px);
+}
+
+.m-section-head p {
+  color: var(--gesso-fg-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.m-section-label {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gesso-accent-text);
+  margin-bottom: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  display: block;
+}
+
+.m-demo-section {
+  padding-block: clamp(48px, 8vw, var(--section-padding));
+}
+
+.m-demo-shell {
+  background: var(--gesso-surface);
+  border: 1px solid var(--gesso-divider);
+  border-radius: var(--gesso-radius-lg);
+  box-shadow: var(--gesso-shadow-md);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  display: grid;
+  overflow: hidden;
+}
+
+.m-demo-chat {
+  flex-direction: column;
+  gap: 20px;
+  padding: 32px;
+  display: flex;
+}
+
+.m-chat-row {
+  gap: 12px;
+  display: flex;
+}
+
+.m-chat-avatar {
+  background: var(--gesso-surface-recessed);
+  width: 28px;
+  height: 28px;
+  color: var(--gesso-fg-muted);
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+}
+
+.m-chat-avatar.ai {
+  background: var(--gesso-primary);
+  color: var(--gesso-on-accent);
+}
+
+.m-chat-bubble {
+  background: var(--gesso-surface-recessed);
+  border-radius: var(--gesso-radius-md);
+  max-width: 440px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.m-chat-bubble.ai {
+  background: var(--gesso-surface-elevated);
+}
+
+.m-chat-bubble code {
+  color: var(--gesso-fg);
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.m-demo-panel {
+  background: var(--gesso-surface-recessed);
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  display: flex;
+}
+
+.m-panel-label {
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gesso-fg-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.m-metric-card {
+  background: var(--gesso-surface);
+  border-radius: var(--gesso-radius-md);
+  text-align: center;
+  box-shadow: var(--gesso-shadow-sm);
+  padding: 28px 24px;
+}
+
+.m-metric-value {
+  font-family: var(--gesso-font-display);
+  color: var(--gesso-fg);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.m-metric-sub {
+  color: var(--gesso-fg-muted);
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.m-demo-chips {
+  flex-wrap: wrap;
+  gap: 8px;
+  display: flex;
+}
+
+.m-demo-chip {
+  background: var(--gesso-surface);
+  color: var(--gesso-fg-muted);
+  border-radius: var(--gesso-radius-full);
+  box-shadow: var(--gesso-shadow-sm);
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.m-steps-section {
+  padding-block: clamp(48px, 8vw, var(--section-padding));
+}
+
+.m-steps-list {
+  flex-direction: column;
+  max-width: 760px;
+  margin-inline: auto;
+  display: flex;
+}
+
+.m-step-row {
+  border-top: 1px solid var(--gesso-divider);
+  gap: 24px;
+  padding-block: 28px;
+  display: flex;
+}
+
+.m-step-row:first-child {
+  border-top: none;
+}
+
+.m-step-idx {
+  background: var(--gesso-surface);
+  width: 36px;
+  height: 36px;
+  box-shadow: var(--gesso-shadow-sm);
+  border: 1px solid var(--gesso-divider);
+  color: var(--gesso-fg-muted);
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+}
+
+.m-step-body h3 {
+  font-family: var(--gesso-font-body);
+  color: var(--gesso-fg);
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.m-step-body p {
+  color: var(--gesso-fg-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.m-features-section {
+  padding-block: clamp(48px, 8vw, var(--section-padding));
+}
+
+.m-feature-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  display: grid;
+}
+
+.m-feature-card {
+  background: var(--gesso-surface);
+  border: 1px solid var(--gesso-divider);
+  border-radius: var(--gesso-radius-lg);
+  box-shadow: var(--gesso-shadow-sm);
+  transition: transform var(--gesso-duration-fast) var(--gesso-ease),
+    box-shadow var(--gesso-duration-fast) var(--gesso-ease);
+  padding: 28px;
+}
+
+.m-feature-card:hover {
+  box-shadow: var(--gesso-shadow-md);
+  transform: translateY(-3px);
+}
+
+.m-feature-icon {
+  border-radius: var(--gesso-radius-md);
+  background: var(--gesso-surface-recessed);
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  display: flex;
+}
+
+.m-feature-card h3 {
+  font-family: var(--gesso-font-body);
+  color: var(--gesso-fg);
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.m-feature-card p {
+  color: var(--gesso-fg-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.m-security-strip {
+  padding-block: clamp(48px, 6vw, 80px);
+}
+
+.m-security-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  display: grid;
+}
+
+.m-security-item {
+  background: var(--gesso-surface);
+  border-radius: var(--gesso-radius-lg);
+  box-shadow: var(--gesso-shadow-sm);
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  display: flex;
+}
+
+.m-security-badge {
+  border-radius: var(--gesso-radius-full);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+}
+
+.m-badge-green {
+  background: color-mix(in srgb, var(--gesso-primary) 15%, var(--gesso-surface));
+  color: var(--gesso-accent-text);
+}
+
+.m-badge-amber {
+  background: color-mix(in srgb, var(--gesso-extra-2) 20%, var(--gesso-surface));
+  color: #7c4a00;
+}
+
+.m-badge-cyan {
+  background: color-mix(in srgb, var(--gesso-extra-1) 25%, var(--gesso-surface));
+  color: #005f6b;
+}
+
+.m-security-item h3 {
+  font-family: var(--gesso-font-body);
+  color: var(--gesso-fg);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.m-security-item p {
+  color: var(--gesso-fg-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.m-pricing-section {
+  padding-block: clamp(48px, 8vw, var(--section-padding));
+}
+
+.m-pricing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 980px;
+  margin-inline: auto;
+  display: grid;
+}
+
+.m-price-card {
+  background: var(--gesso-surface);
+  border: 1px solid var(--gesso-divider);
+  border-radius: var(--gesso-radius-lg);
+  box-shadow: var(--gesso-shadow-sm);
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  display: flex;
+  position: relative;
+}
+
+.m-price-card.featured {
+  box-shadow: var(--gesso-shadow-lg);
+  border-color: var(--gesso-neutral-200);
+}
+
+.m-price-tier {
+  color: var(--gesso-fg-muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.m-price-value {
+  font-family: var(--gesso-font-display);
+  color: var(--gesso-fg);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.m-price-value span {
+  color: var(--gesso-fg-muted);
+  font-size: 15px;
+  font-weight: 400;
+  font-family: var(--gesso-font-body);
+}
+
+.m-price-feats {
+  flex-direction: column;
+  gap: 12px;
+  display: flex;
+}
+
+.m-price-feat-row {
+  color: var(--gesso-fg);
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  display: flex;
+}
+
+.m-price-feat-row .m-pipe-check {
+  width: 18px;
+  height: 18px;
+}
+
+.m-featured-badge {
+  background: var(--gesso-secondary);
+  color: #fff;
+  border-radius: var(--gesso-radius-full);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  position: absolute;
+  top: -12px;
+  right: 24px;
+}
+
+.m-cta-section {
+  text-align: center;
+  padding-block: clamp(64px, 10vw, 120px);
+}
+
+.m-cta-card {
+  background: var(--gesso-surface);
+  border-radius: var(--gesso-radius-lg);
+  box-shadow: var(--gesso-shadow-md);
+  max-width: 800px;
+  margin-inline: auto;
+  padding: clamp(40px, 6vw, 80px);
+}
+
+.m-cta-card h2 {
+  margin-bottom: 16px;
+  font-size: clamp(28px, 3.8vw, 48px);
+}
+
+.m-cta-card p {
+  color: var(--gesso-fg-muted);
+  margin-bottom: 36px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.m-cta-actions {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  display: flex;
+}
+
+.m-footer {
+  border-top: 1px solid var(--gesso-divider);
+  padding-block: 56px;
+}
+
+.m-footer-grid {
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 48px;
+  margin-bottom: 48px;
+  display: grid;
+}
+
+.m-footer-brand p {
+  color: var(--gesso-fg-muted);
+  max-width: 260px;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.m-footer-col h4 {
+  color: var(--gesso-fg);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--gesso-font-body);
+  margin-bottom: 16px;
+}
+
+.m-footer-col a {
+  color: var(--gesso-fg-muted);
+  transition: color var(--gesso-duration-fast) var(--gesso-ease);
+  margin-bottom: 10px;
+  font-size: 13px;
+  display: block;
+}
+
+.m-footer-col a:hover {
+  color: var(--gesso-fg);
+}
+
+.m-footer-bottom {
+  border-top: 1px solid var(--gesso-divider);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 24px;
+  display: flex;
+}
+
+.m-footer-bottom p {
+  color: var(--gesso-fg-muted);
+  font-size: 13px;
+}
+
+.m-footer-legal {
+  gap: 20px;
+  display: flex;
+}
+
+.m-footer-legal a {
+  color: var(--gesso-fg-muted);
+  font-size: 13px;
+}
+
+.m-footer-legal a:hover {
+  color: var(--gesso-fg);
+}
+
+.m-reveal {
+  opacity: 0;
+  transition: opacity .6s var(--gesso-ease), transform .6s var(--gesso-ease);
+  transform: translateY(20px);
+}
+
+@keyframes gesso-silk-flow-1 {
+  0%, 100% {
+    transform: translate(0%)scale(1)rotate(0);
+  }
+
+  33% {
+    transform: translate(6%, -8%)scale(1.15)rotate(10deg);
+  }
+
+  66% {
+    transform: translate(-8%, 6%)scale(.95)rotate(-8deg);
+  }
+}
+
+@keyframes gesso-silk-flow-2 {
+  0%, 100% {
+    transform: translate(0%)scale(1)rotate(0);
+  }
+
+  33% {
+    transform: translate(-10%, 8%)scale(1.2)rotate(-12deg);
+  }
+
+  66% {
+    transform: translate(8%, -6%)scale(.9)rotate(15deg);
+  }
+}
+
+@keyframes gesso-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  20%, 60% {
+    transform: translateX(-8px);
+  }
+
+  40%, 80% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes gesso-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px)scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)scale(1);
+  }
+}
+
+@keyframes gesso-pop-success {
+  0% {
+    opacity: 0;
+    transform: scale(.6);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gesso-auth-page {
+  --gesso-canvas: #18181b;
+  --gesso-surface-recessed: #121215;
+  --gesso-surface: #242429;
+  --gesso-surface-elevated: #2e2e35;
+  --gesso-divider: #ffffff14;
+  --gesso-fg: #f3f4f6;
+  --gesso-fg-muted: #94a3b8;
+  --gesso-primary: #3dd17e;
+  --gesso-on-accent: #000;
+  --gesso-accent-text: #3dd17e;
+  --gesso-secondary: #f0533d;
+  --gesso-accent-2-text: #f0533d;
+  --gesso-neutral-200: #3f3f46;
+  --gesso-neutral-300: #52525b;
+  --gesso-neutral-600: #94a3b8;
+  --gesso-neutral-900: #f3f4f6;
+  --gesso-error: #ef4444;
+  --gesso-font-display: "Space Grotesk", system-ui, sans-serif;
+  --gesso-font-body: "Schibsted Grotesk", system-ui, sans-serif;
+  --gesso-radius-sm: 4px;
+  --gesso-radius-md: 8px;
+  --gesso-radius-lg: 12px;
+  --gesso-radius-full: 9999px;
+  --gesso-shadow-sm: 0 1px 2px #0000004d;
+  --gesso-shadow-md: 0 4px 12px #0006;
+  --gesso-shadow-lg: 0 20px 60px #0009;
+  --gesso-duration-fast: .15s;
+  --gesso-duration-base: .22s;
+  --gesso-ease: cubic-bezier(.4, 0, .2, 1);
+  --gesso-ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  background-color: var(--gesso-canvas);
+  min-height: 100vh;
+  color: var(--gesso-fg);
+  font-family: var(--gesso-font-body);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.gesso-auth-header {
+  z-index: 10;
+  font-family: var(--gesso-font-display);
+  color: var(--gesso-fg);
+  transition: transform var(--gesso-duration-fast) var(--gesso-ease);
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  position: absolute;
+  top: 28px;
+  left: 28px;
+}
+
+.gesso-auth-header:hover {
+  transform: translateY(-1px);
+}
+
+.gesso-auth-brand-mark {
+  border-radius: var(--gesso-radius-sm);
+  background: var(--gesso-primary);
+  width: 32px;
+  height: 32px;
+  color: var(--gesso-on-accent);
+  transition: transform var(--gesso-duration-fast) var(--gesso-ease-spring);
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  box-shadow: 0 4px 12px #3dd17e4d;
+}
+
+.gesso-auth-header:hover .gesso-auth-brand-mark {
+  transform: scale(1.08)rotate(-4deg);
+}
+
+.gesso-auth-card {
+  z-index: 10;
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-radius: var(--gesso-radius-lg);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--gesso-shadow-lg);
+  animation: gesso-fade-in-up .5s var(--gesso-ease-spring) backwards;
+  transition: transform var(--gesso-duration-base) var(--gesso-ease), box-shadow var(--gesso-duration-base) var(--gesso-ease);
+  background: #242429e0;
+  border: 1px solid #ffffff1a;
+  flex-direction: column;
+  gap: 24px;
+  padding: 36px 32px;
+  display: flex;
+  position: relative;
+}
+
+.gesso-auth-card.shake {
+  animation: .45s cubic-bezier(.36, .07, .19, .97) both gesso-shake;
+}
+
+.gesso-auth-title {
+  font-family: var(--gesso-font-display);
+  color: var(--gesso-fg);
+  text-align: center;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.gesso-auth-subtitle {
+  color: var(--gesso-fg-muted);
+  text-align: center;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.gesso-auth-steps {
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  display: flex;
+}
+
+.gesso-auth-step-pill {
+  border-radius: var(--gesso-radius-full);
+  height: 4px;
+  transition: all .35s var(--gesso-ease-spring);
+}
+
+.gesso-auth-step-pill.active {
+  background: var(--gesso-secondary);
+  width: 32px;
+}
+
+.gesso-auth-step-pill.inactive {
+  background: var(--gesso-neutral-200);
+  width: 16px;
+}
+
+.gesso-auth-form {
+  animation: gesso-fade-in-up .3s var(--gesso-ease) backwards;
+  flex-direction: column;
+  gap: 16px;
+  display: flex;
+}
+
+.gesso-auth-label {
+  color: var(--gesso-fg);
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+}
+
+.gesso-auth-input-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.gesso-auth-input {
+  border: 1px solid var(--gesso-neutral-200);
+  border-radius: var(--gesso-radius-md);
+  width: 100%;
+  font-family: var(--gesso-font-body);
+  color: var(--gesso-fg);
+  transition: border-color var(--gesso-duration-fast) var(--gesso-ease), box-shadow var(--gesso-duration-fast) var(--gesso-ease), background var(--gesso-duration-fast) var(--gesso-ease);
+  background: #e8e8e8b3;
+  outline: none;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.gesso-auth-input:focus {
+  background: var(--gesso-surface);
+  border-color: var(--gesso-primary);
+  box-shadow: 0 0 0 3px #3dd17e40;
+}
+
+.gesso-auth-input.code-input {
+  font-family: var(--gesso-font-mono, monospace);
+  letter-spacing: .4em;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 22px;
+}
+
+.gesso-auth-btn-primary {
+  background: var(--gesso-secondary);
+  color: #fff;
+  border-radius: var(--gesso-radius-md);
+  width: 100%;
+  font-family: var(--gesso-font-body);
+  cursor: pointer;
+  transition: transform .15s var(--gesso-ease), filter .15s var(--gesso-ease), box-shadow .15s var(--gesso-ease);
+  border: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  box-shadow: 0 4px 14px #f0533d40;
+}
+
+.gesso-auth-btn-primary:hover:not(:disabled) {
+  filter: brightness(.93);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px #f0533d59;
+}
+
+.gesso-auth-btn-primary:active:not(:disabled) {
+  transform: translateY(1px)scale(.99);
+  box-shadow: 0 2px 8px #f0533d33;
+}
+
+.gesso-auth-btn-primary:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.gesso-auth-btn-back {
+  color: var(--gesso-fg-muted);
+  cursor: pointer;
+  text-align: center;
+  text-underline-offset: 4px;
+  transition: color var(--gesso-duration-fast) var(--gesso-ease);
+  background: none;
+  border: none;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.gesso-auth-btn-back:hover {
+  color: var(--gesso-fg);
+}
+
+.gesso-auth-input.code-digit-box {
+  font-family: var(--gesso-font-mono, monospace);
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.gesso-auth-success-hint {
+  background: color-mix(in srgb, var(--gesso-primary) 15%, var(--gesso-surface));
+  border: 1px solid color-mix(in srgb, var(--gesso-primary) 30%, transparent);
+  color: var(--gesso-accent-text);
+  border-radius: var(--gesso-radius-md);
+  text-align: center;
+  animation: gesso-pop-success .25s var(--gesso-ease-spring) backwards;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.gesso-auth-error {
+  background: color-mix(in srgb, var(--gesso-error) 10%, var(--gesso-surface));
+  border: 1px solid color-mix(in srgb, var(--gesso-error) 25%, transparent);
+  color: var(--gesso-error);
+  border-radius: var(--gesso-radius-md);
+  text-align: center;
+  animation: gesso-pop-success .25s var(--gesso-ease-spring) backwards;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.gesso-spinner {
+  border: 2px solid #ffffff4d;
+  border-top-color: #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: .6s linear infinite gesso-spin;
+}
+
+@keyframes gesso-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=app_marketing_1uc2hm8.css.map*/
