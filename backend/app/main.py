@@ -7,7 +7,15 @@ from app.llm.router import router as llm_router
 
 import os
 
+from app.db.session import engine, Base
+from app.db import models  # noqa: F401
+
 app = FastAPI(title="QueryMind API")
+
+# Ensure tables are created on startup (e.g. SQLite DB on Render)
+@app.on_event("startup")
+def on_startup():
+    Base.metadata.create_all(bind=engine)
 
 origins = [
     os.getenv("FRONTEND_URL", "*"),
