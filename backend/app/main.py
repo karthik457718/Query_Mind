@@ -10,12 +10,14 @@ import os
 from app.db.session import engine, Base
 from app.db import models  # noqa: F401
 
-app = FastAPI(title="QueryMind API")
+from contextlib import asynccontextmanager
 
-# Ensure tables are created on startup (e.g. SQLite DB on Render)
-@app.on_event("startup")
-def on_startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)
+    yield
+
+app = FastAPI(title="QueryMind API", lifespan=lifespan)
 
 origins = [
     os.getenv("FRONTEND_URL", "*"),
