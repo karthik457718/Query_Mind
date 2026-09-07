@@ -2,11 +2,11 @@ from pydantic import BaseModel, EmailStr
 
 
 class RequestOTP(BaseModel):
-    email: EmailStr
+    email: str
 
 
 class VerifyOTP(BaseModel):
-    email: EmailStr
+    email: str
     code: str
 
 
