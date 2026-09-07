@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Show all records from the orders table",
+    "db_url": "sqlite:///:memory:",
+    "expected_sql_contains": "SELECT"
+  },
+  {
+    "question": "Count the number of items in the products table",
+    "db_url": "sqlite:///:memory:",
+    "expected_sql_contains": "COUNT"
+  }
+]

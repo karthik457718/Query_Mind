@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pymysql
+python-dotenv
+groq
+sqlglot
+cryptography
+python-jose
+resend
+pydantic[email]
+gunicorn

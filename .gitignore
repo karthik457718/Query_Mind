@@ -1,0 +1,19 @@
+# Node / Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/ts-build/
+
+# Python / Backend
+backend/venv/
+backend/__pycache__/
+backend/*/__pycache__/
+backend/*.pyc
+backend/.env
+backend/querymind.db
+backend/backend.log
+
+# System / IDE
+.DS_Store
+*.log
